@@ -1,2 +1,2 @@
 # College_Management_System
-всем привет
+https://github.com/moiaa/College_Management_System2131.git

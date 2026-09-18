@@ -5,10 +5,12 @@ from sqlalchemy.orm import relationship
 from .database import Base
 import enum
 
+
 class UserRole(str, enum.Enum):
     STUDENT = "student"
     TEACHER = "teacher"
     ADMIN = "admin"
+
 
 class User(Base):
     __tablename__ = "users"
@@ -20,9 +22,10 @@ class User(Base):
     role = Column(Enum(UserRole), nullable=False)
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    grades = relationship("Grade", back_populates="student")
+    grades = relationship("Grade", back_populates="student", foreign_keys="Grade.student_id")
     courses_as_teacher = relationship("Course", back_populates="teacher")
     attendance = relationship("Attendance", back_populates="student")
+
 
 class Course(Base):
     __tablename__ = "courses"
@@ -36,6 +39,7 @@ class Course(Base):
     schedules = relationship("Schedule", back_populates="course")
     grades = relationship("Grade", back_populates="course")
 
+
 class Schedule(Base):
     __tablename__ = "schedules"
     id = Column(Integer, primary_key=True, index=True)
@@ -47,6 +51,7 @@ class Schedule(Base):
     building = Column(String(50))
     course = relationship("Course", back_populates="schedules")
 
+
 class Grade(Base):
     __tablename__ = "grades"
     id = Column(Integer, primary_key=True, index=True)
@@ -56,8 +61,9 @@ class Grade(Base):
     comment = Column(Text)
     graded_at = Column(DateTime, default=datetime.utcnow)
     graded_by = Column(Integer, ForeignKey("users.id"))
-    student = relationship("User", back_populates="grades")
+    student = relationship("User", back_populates="grades", foreign_keys=[student_id])
     course = relationship("Course", back_populates="grades")
+
 
 class Attendance(Base):
     __tablename__ = "attendances"

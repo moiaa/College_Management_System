@@ -2,9 +2,10 @@
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from core.database import SessionLocal, engine, Base
-from core.models import User, UserRole
-from core.auth import get_password_hash
+from core.database import SessionLocal, engine, Base  # noqa: E402
+from core.models import User, UserRole  # noqa: E402
+from core.auth import get_password_hash  # noqa: E402
+
 
 def seed_data():
     Base.metadata.create_all(bind=engine)
@@ -26,6 +27,7 @@ def seed_data():
         print("✅ Тестовые данные добавлены!")
     finally:
         db.close()
+
 
 if __name__ == "__main__":
     seed_data()

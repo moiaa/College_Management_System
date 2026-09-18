@@ -8,5 +8,6 @@ click==8.1.7
 rich==13.7.0
 pytest==7.4.3
 pytest-cov==4.1.0
+httpx==0.25.1
 flake8==6.1.0
 alembic==1.12.1

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Пример фронтенда — ExampleItem</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.25rem; }
+    form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    input { flex: 1; padding: 0.4rem; }
+    button { padding: 0.4rem 0.8rem; }
+    ul { padding-left: 1.2rem; }
+    #error { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>Пример фронтенда (не один из 7 модулей — образец паттерна)</h1>
+  <p>Ходит в демонстрационный backend-эндпоинт <code>/api/v1/example/items</code>.</p>
+
+  <form id="create-form">
+    <input id="text-input" type="text" placeholder="Текст записи" required />
+    <button type="submit">Добавить</button>
+  </form>
+
+  <p id="error"></p>
+  <ul id="items-list"></ul>
+
+  <script>
+    const API_URL = "/api/v1/example/items";
+    const listEl = document.getElementById("items-list");
+    const errorEl = document.getElementById("error");
+    const formEl = document.getElementById("create-form");
+    const inputEl = document.getElementById("text-input");
+
+    function showError(message) {
+      errorEl.textContent = message;
+    }
+
+    async function loadItems() {
+      showError("");
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+          throw new Error(`Сервер ответил ${response.status}`);
+        }
+        const items = await response.json();
+        listEl.innerHTML = "";
+        for (const item of items) {
+          const li = document.createElement("li");
+          li.textContent = `#${item.id} — ${item.text}`;
+          listEl.appendChild(li);
+        }
+      } catch (err) {
+        showError(`Не удалось загрузить список: ${err.message}. Запущен ли сервер (python main.py run)?`);
+      }
+    }
+
+    formEl.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      showError("");
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: inputEl.value }),
+        });
+        if (!response.ok) {
+          throw new Error(`Сервер ответил ${response.status}`);
+        }
+        inputEl.value = "";
+        await loadItems();
+      } catch (err) {
+        showError(`Не удалось создать запись: ${err.message}`);
+      }
+    });
+
+    loadItems();
+  </script>
+</body>
+</html>

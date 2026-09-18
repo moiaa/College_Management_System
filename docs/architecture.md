@@ -5,9 +5,10 @@
 1. **Core Layer** (`core/`) — общее для всех модулей: подключение к БД
    (`database.py`), базовые ORM-модели (`models.py`), аутентификация
    (`auth.py`), конфиг (`config.py`).
-2. **Module Layer** (`modules/<название>/`) — код конкретного модуля
-   (Gradebook, Curriculum, Schedule, Reports, Student Portal, Teacher
-   Portal, Admin Panel): свои ORM-модели, Pydantic-схемы и роутер.
+2. **Module Layer, backend** (`modules/<название>/`) — код backend-части
+   конкретного модуля (Gradebook, Curriculum, Schedule, Reports, Student
+   Portal, Teacher Portal, Admin Panel): свои ORM-модели, Pydantic-схемы
+   и роутер.
 3. **API Layer** (`core/api.py`) — общее FastAPI-приложение. Каждый
    модуль подключает свой роутер сюда одной строкой:
 
@@ -15,6 +16,17 @@
    from modules.<название>.router import router as <название>_router
    app.include_router(<название>_router)
    ```
+
+4. **Module Layer, frontend** (`frontend/<название>/`) — обычный
+   HTML/CSS/JS без сборки, код frontend-части того же модуля. Раздаётся
+   этим же приложением через `StaticFiles` — подробности в
+   `frontend/README.md`.
+
+На каждый из 7 модулей — по две команды: backend (пишет роутер в
+`modules/<название>/`) и frontend (пишет страницу в
+`frontend/<название>/`). Они общаются между собой только через HTTP API
+модуля (`/api/v1/<название>/...`) — это и есть контракт, который стоит
+зафиксировать в ТЗ модуля до начала работы.
 
 ## Как модуль подключается к системе
 
@@ -33,5 +45,9 @@
 
 ```bash
 python main.py init   # создать БД и таблицы всех подключённых модулей
-python main.py run    # поднять API на http://127.0.0.1:8000
+python main.py run    # поднять API + фронтенд на http://127.0.0.1:8000
 ```
+
+Рабочий пример на HTML/CSS/JS, обращающийся к тому же демонстрационному
+эндпоинту — `http://127.0.0.1:8000/frontend/_example/` (см.
+`frontend/README.md`).

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Management System — Material 3 Expressive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/m3-expressive.css">
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- ============================================================
+       Expressive Navigation Rail / Sidebar
+       ============================================================ -->
+  <aside class="expressive-sidebar" style="position: relative;">
+    <!-- Brand / System Title -->
+    <div class="brand-section">
+      <div class="brand-icon">🎓</div>
+      <div class="brand-info">
+        <h1>College<br>Management</h1>
+        <span>Учебная система</span>
+      </div>
+    </div>
+
+    <!-- Navigation Menu (Dynamically filtered by Role) -->
+    <nav style="flex: 1; display: flex; flex-direction: column;">
+      <ul class="nav-menu">
+        <li class="nav-item" data-tab="gradebook">
+          <button class="nav-link active" data-tab="gradebook">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <span>Электронный журнал</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="schedule">
+          <button class="nav-link" data-tab="schedule">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+            <span>Расписание</span>
+            <span class="nav-badge">Сейчас</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="curriculum">
+          <button class="nav-link" data-tab="curriculum">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+            <span>Рабочие программы</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="reports">
+          <button class="nav-link" data-tab="reports">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+            <span>Отчёты</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="student-portal">
+          <button class="nav-link" data-tab="student-portal">
+            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+            <span>Кабинет студента</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="teacher-portal">
+          <button class="nav-link" data-tab="teacher-portal">
+            <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2h-4zM4 5h16v11H4V5zm8 14c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+            <span>Кабинет преподавателя</span>
+          </button>
+        </li>
+        <li class="nav-item" data-tab="admin-panel">
+          <button class="nav-link" data-tab="admin-panel">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            <span>Админ-панель</span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- ============================================================
+           Profile Popover Menu (Appears upon clicking profile card)
+           ============================================================ -->
+      <div id="profile-popover" class="profile-popover">
+        <div class="popover-user-info">
+          <div class="user-avatar" id="popover-avatar">МШ</div>
+          <div>
+            <div style="font-weight: 800; font-size: 14px;" id="popover-name">Михаил Ширяев</div>
+            <span class="popover-role-badge" id="popover-role-badge">Преподаватель</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="popover-section-title">Быстрая смена аккаунта</span>
+          <div class="quick-switch-list" style="margin-top: 6px;">
+            <button class="btn-switch-account" data-username="admin" onclick="quickSwitchUser('admin')">
+              <span>👑 Администратор</span>
+              <span style="font-size: 11px; opacity: 0.6;">admin</span>
+            </button>
+            <button class="btn-switch-account" data-username="teacher" onclick="quickSwitchUser('teacher')">
+              <span>👨‍🏫 Преподаватель</span>
+              <span style="font-size: 11px; opacity: 0.6;">1234</span>
+            </button>
+            <button class="btn-switch-account" data-username="student" onclick="quickSwitchUser('student')">
+              <span>👨‍🎓 Студент</span>
+              <span style="font-size: 11px; opacity: 0.6;">1234</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="btn-logout" onclick="handleLogout()">
+          <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+          Выйти из аккаунта
+        </button>
+      </div>
+
+      <!-- User Profile Card in Sidebar (Clickable trigger for popover) -->
+      <div class="user-profile-card" id="sidebar-profile-card" title="Нажмите для управления аккаунтом">
+        <div class="user-avatar" id="sidebar-user-avatar">МШ</div>
+        <div class="user-details">
+          <div class="user-name" id="sidebar-user-name">Михаил Ширяев</div>
+          <div class="user-role" id="sidebar-user-role">Преподаватель</div>
+        </div>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Переключить тему">
+          <span id="theme-icon">&#9790;</span>
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ============================================================
+       Main Content Viewport
+       ============================================================ -->
+  <main class="main-viewport">
+    
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+      <div class="page-headline">
+        <h2 id="current-page-title">Электронный журнал</h2>
+        <p id="current-page-subtitle">Оценки и посещаемость учебной группы</p>
+      </div>
+      
+      <div class="top-bar-actions" id="global-actions">
+        <button class="btn-m3 btn-outlined" onclick="exportGradebook()">
+          <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Экспорт отчёта
+        </button>
+        <button class="btn-m3 btn-primary" id="btn-add-grade-global" onclick="openAddGradeModal()">
+          <span style="font-size: 18px; line-height: 1;">+</span>
+          Добавить оценку
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         SCREEN 1: GRADEBOOK (Электронный журнал)
+         ============================================================ -->
+    <div id="screen-gradebook" class="module-screen content-padding">
+      
+      <!-- Admin Superpower Bar for Gradebook -->
+      <div class="admin-superpower-bar" id="admin-gradebook-superpower-bar" style="display: none;">
+        <div class="admin-superpower-title">
+          <span>⚡</span>
+          <span>Админ-режим: Переключение вида ведомости</span>
+        </div>
+        <div class="admin-superpower-controls">
+          <label style="font-size: 13px; font-weight: 600;" for="admin-gradebook-mode">Режим ведомости:</label>
+          <select id="admin-gradebook-mode" class="select-expressive" style="background-color: var(--md-sys-color-surface-container);">
+            <option value="group">Ведомость группы (Все студенты)</option>
+            <option value="student">Индивидуальный журнал студента (Предметы)</option>
+          </select>
+          <select id="admin-gradebook-student-select" class="select-expressive" style="display: none; background-color: var(--md-sys-color-surface-container);"></select>
+        </div>
+      </div>
+
+      <!-- Filter Context Strip -->
+      <div class="filter-strip">
+        <div class="filters-group" id="gradebook-filters-group">
+          <!-- Field 1: Group (Teacher/Admin) OR Student Badge (Student) -->
+          <div class="filter-field" id="filter-field-group">
+            <span class="filter-label" id="filter-group-label">Группа</span>
+            <select id="filter-group" class="select-expressive">
+              <option value="ИС-31" selected>ИС-31</option>
+              <option value="ОИ31-09">ОИ31-09</option>
+              <option value="ОИ32-09">ОИ32-09</option>
+              <option value="ОИ33-09">ОИ33-09</option>
+            </select>
+            <div id="student-chip-display" class="student-tag-chip" style="display: none;">
+              <span>👨‍🎓</span>
+              <span id="student-chip-name">Александров Илья (ИС-31)</span>
+            </div>
+          </div>
+
+          <!-- Field 2: Subject (Teacher/Admin) OR Control Type Filter (Student) -->
+          <div class="filter-field" id="filter-field-subject">
+            <span class="filter-label" id="filter-subject-label">Предмет</span>
+            <select id="filter-subject" class="select-expressive">
+              <option value="Разработка ПО" selected>Разработка ПО</option>
+              <option value="Базы данных">Базы данных</option>
+              <option value="Веб-дизайн">Веб-дизайн</option>
+              <option value="Операционные системы">Операционные системы</option>
+            </select>
+            <select id="filter-student-control" class="select-expressive" style="display: none;">
+              <option value="all" selected>Все дисциплины</option>
+              <option value="exam">Только экзамены</option>
+              <option value="diff">Дифф. зачёты</option>
+              <option value="pass">Зачёты</option>
+            </select>
+          </div>
+
+          <!-- Field 3: Period (All Roles) -->
+          <div class="filter-field">
+            <span class="filter-label">Период</span>
+            <select id="filter-period" class="select-expressive">
+              <option value="Сентябрь 2026" selected>Сентябрь 2026</option>
+              <option value="Октябрь 2026">Октябрь 2026</option>
+              <option value="1 семестр 2026">1 семестр 2026</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- KPI Metric -->
+        <div class="kpi-indicator" id="gradebook-kpi-block">
+          <span class="kpi-label" id="gradebook-kpi-label">Посещаемость</span>
+          <span class="kpi-value" id="group-attendance-kpi">92%</span>
+        </div>
+      </div>
+
+      <!-- Main Expressive Table Card -->
+      <div class="table-card">
+        <div class="table-responsive-container">
+          <table class="expressive-table">
+            <thead>
+              <tr>
+                <th class="col-student" id="gradebook-first-col-header">Студент</th>
+                <th id="gradebook-dates-header" colspan="6" style="padding:0; border:none; display:contents;"></th>
+                <th>Средний</th>
+                <th>Посещ.</th>
+                <th class="col-comments">Комментарии</th>
+                <th id="gradebook-last-col-header">Действия</th>
+              </tr>
+            </thead>
+            <tbody id="gradebook-table-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Table Legend Footer -->
+        <div class="table-legend-footer">
+          <span style="font-weight: 700; color: var(--md-sys-color-on-surface);">Легенда:</span>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--status-ongoing-green);"></div>
+            <span>5 — отлично</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--md-sys-color-primary);"></div>
+            <span>4 — хорошо</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--status-cancelled-red);"></div>
+            <span>3 — требуется внимание</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background: var(--status-upcoming-amber);"></div>
+            <span>Н — отсутствие</span>
+          </div>
+          <div class="legend-item">
+            <span style="opacity: 0.5;">— — нет оценки</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============================================================
+         SCREEN 2: SCHEDULE (Расписание)
+         ============================================================ -->
+    <div id="screen-schedule" class="module-screen content-padding" style="display: none;">
+      
+      <!-- Admin / Multi-Group Schedule Superpower Bar -->
+      <div class="admin-superpower-bar">
+        <div class="admin-superpower-title">
+          <span>📅</span>
+          <span id="schedule-group-title">Расписание занятий группы ИС-31</span>
+        </div>
+        <div class="admin-superpower-selects">
+          <span style="font-size: 12px; font-weight: 700;">Переключить группу:</span>
+          <select id="admin-schedule-group" class="select-expressive" style="padding: 6px 30px 6px 12px; font-size: 13px;">
+            <option value="ИС-31" selected>ИС-31</option>
+            <option value="ОИ31-09">ОИ31-09</option>
+            <option value="ОИ32-09">ОИ32-09</option>
+            <option value="ОИ33-09">ОИ33-09</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Day Selector Strip -->
+      <div class="filter-strip" style="justify-content: flex-start; gap: 12px;">
+        <button class="btn-m3 btn-primary">Понедельник (Сегодня)</button>
+        <button class="btn-m3 btn-tonal">Вторник</button>
+        <button class="btn-m3 btn-tonal">Среда</button>
+        <button class="btn-m3 btn-tonal">Четверг</button>
+        <button class="btn-m3 btn-tonal">Пятница</button>
+      </div>
+
+      <!-- Schedule Cards Grid -->
+      <div class="schedule-grid">
+        <div class="class-card ongoing">
+          <div>
+            <div class="chip-type">Практика</div>
+            <div style="font-size: 20px; font-weight: 800; letter-spacing: -0.3px;">09:00 — 10:35</div>
+            <div style="font-size: 18px; font-weight: 700; margin-top: 8px;">Разработка программных модулей</div>
+            <div class="card-subtext" style="font-size: 14px; margin-top: 4px;">Преподаватель: Моисеева А. А.</div>
+            
+            <div style="margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: var(--shape-full); font-size: 11px; font-weight: 800;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #00E676;"></span>
+              СЕЙЧАС ИДЁТ • осталось 25 мин
+            </div>
+            <div class="progress-track" style="background: rgba(255,255,255,0.3);">
+              <div class="progress-fill" style="width: 72%; background: #FFFFFF;"></div>
+            </div>
+          </div>
+
+          <div class="room-badge-blob">
+            <span style="font-size: 10px; font-weight: 700; opacity: 0.8;">КАБ.</span>
+            302
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <div class="chip-type">Лекция</div>
+            <div style="font-size: 20px; font-weight: 800; color: var(--md-sys-color-primary);">10:45 — 12:20</div>
+            <div style="font-size: 18px; font-weight: 700; margin-top: 8px;">Проектирование баз данных</div>
+            <div style="font-size: 14px; color: var(--md-sys-color-on-surface-variant); margin-top: 4px;">Преподаватель: Смирнов В. И.</div>
+            <div style="margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container); padding: 4px 12px; border-radius: var(--shape-full); font-size: 12px; font-weight: 700;">
+              Начнётся через 45 мин
+            </div>
+          </div>
+
+          <div class="room-badge-blob">
+            <span style="font-size: 10px; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">КАБ.</span>
+            418
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <div class="chip-type" style="background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);">Лабораторная • ZOOM</div>
+            <div style="font-size: 20px; font-weight: 800; color: var(--md-sys-color-primary);">13:00 — 14:35</div>
+            <div style="font-size: 18px; font-weight: 700; margin-top: 8px;">Информационная безопасность</div>
+            <div style="font-size: 14px; color: var(--md-sys-color-on-surface-variant); margin-top: 4px;">Преподаватель: Кузнецов А. С.</div>
+            <div style="margin-top: 14px;">
+              <a href="#" class="btn-m3 btn-tonal" style="font-size: 12px; padding: 6px 14px;">Подключиться к конференции</a>
+            </div>
+          </div>
+
+          <div class="room-badge-blob">
+            <span style="font-size: 10px; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">ONLINE</span>
+            Zoom
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 3: CURRICULUM (Рабочие программы)
+         ============================================================ -->
+    <div id="screen-curriculum" class="module-screen content-padding" style="display: none;">
+      <div class="schedule-grid">
+        <div class="class-card">
+          <div>
+            <div class="chip-type">09.02.07</div>
+            <h3 style="font-size: 20px; font-weight: 800;">Разработка программных модулей</h3>
+            <p style="color: var(--md-sys-color-on-surface-variant); margin-top: 6px; font-size: 14px;">Курс 3, 5 семестр • 108 академических часов</p>
+            <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="badge-gpa">Лекции: 36ч</span>
+              <span class="badge-gpa">Практика: 54ч</span>
+              <span class="badge-gpa">Экзамен: Диф. зачёт</span>
+            </div>
+          </div>
+          <div style="margin-top: 20px;">
+            <button class="btn-m3 btn-primary" style="width: 100%;">Открыть программу (PDF)</button>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <div class="chip-type">09.02.07</div>
+            <h3 style="font-size: 20px; font-weight: 800;">Инструментальные средства разработки</h3>
+            <p style="color: var(--md-sys-color-on-surface-variant); margin-top: 6px; font-size: 14px;">Курс 3, 5 семестр • 72 академических часа</p>
+            <div style="margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="badge-gpa">Git & GitHub</span>
+              <span class="badge-gpa">CI/CD</span>
+              <span class="badge-gpa">FastAPI</span>
+            </div>
+          </div>
+          <div style="margin-top: 20px;">
+            <button class="btn-m3 btn-tonal" style="width: 100%;">Открыть программу (PDF)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 4: REPORTS (Отчёты)
+         ============================================================ -->
+    <div id="screen-reports" class="module-screen content-padding" style="display: none;">
+      <div class="schedule-grid">
+        <div class="class-card">
+          <div>
+            <div class="chip-type">Аналитика</div>
+            <h3 style="font-size: 20px; font-weight: 800;">Сводная успеваемость по группам</h3>
+            <p style="color: var(--md-sys-color-on-surface-variant); margin-top: 6px; font-size: 14px;">Группа ИС-31: средний балл 4.4, посещаемость 92%</p>
+          </div>
+          <button class="btn-m3 btn-primary" onclick="exportGradebook()">Скачать сводный табель (CSV)</button>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <div class="chip-type">Аттестация</div>
+            <h3 style="font-size: 20px; font-weight: 800;">Ведомость промежуточной аттестации</h3>
+            <p style="color: var(--md-sys-color-on-surface-variant); margin-top: 6px; font-size: 14px;">Готова к подписанию куратором и деканатом</p>
+          </div>
+          <button class="btn-m3 btn-tonal">Сформировать PDF</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 5: STUDENT PORTAL (Кабинет студента)
+         ============================================================ -->
+    <div id="screen-student-portal" class="module-screen content-padding" style="display: none;">
+      
+      <!-- Admin Superpower Bar for Student Portal -->
+      <div class="admin-superpower-bar" style="display: none;">
+        <div class="admin-superpower-title">
+          <span>👑</span>
+          <span>Режим Администратора: Просмотр профиля любого студента</span>
+        </div>
+        <div class="admin-superpower-selects">
+          <span style="font-size: 12px; font-weight: 700;">Студент:</span>
+          <select id="admin-student-select" class="select-expressive" style="padding: 6px 30px 6px 12px; font-size: 13px;"></select>
+        </div>
+      </div>
+
+      <div class="schedule-grid">
+        <div class="class-card" style="border: 2px solid var(--md-sys-color-primary);">
+          <div>
+            <div class="chip-type">Зачётная книжка</div>
+            <h3 style="font-size: 22px; font-weight: 800;" id="student-view-name">Александров Илья</h3>
+            <div style="font-size: 28px; font-weight: 800; color: var(--md-sys-color-primary); margin-top: 6px;" id="student-view-gpa">GPA: 4.8 / 5.0</div>
+            <p style="font-size: 14px; color: var(--md-sys-color-on-surface-variant); margin-top: 6px;" id="student-view-att">Посещаемость: 96%</p>
+            <div style="margin-top: 14px;">
+              <span class="badge-attendance" id="student-view-status">Академическая стипендия назначена • Задолженностей нет</span>
+            </div>
+          </div>
+          <div class="room-badge-blob" style="width: 80px; height: 80px;">
+            <span style="font-size: 10px; font-weight: 700;">ГРУППА</span>
+            ИС-31
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <div class="chip-type">Деканат онлайн</div>
+            <h3 style="font-size: 20px; font-weight: 800;">Заказ академических справок</h3>
+            <p style="color: var(--md-sys-color-on-surface-variant); margin-top: 6px; font-size: 14px;">Справка об обучении, выписка оценок, справка в военкомат</p>
+          </div>
+          <button class="btn-m3 btn-primary" onclick="showToast('Заявка на справку создана в деканате!')">Заказать справку онлайн</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 6: TEACHER PORTAL (Кабинет преподавателя)
+         ============================================================ -->
+    <div id="screen-teacher-portal" class="module-screen content-padding" style="display: none;">
+      
+      <!-- Admin Superpower Bar for Teacher Portal -->
+      <div class="admin-superpower-bar" style="display: none;">
+        <div class="admin-superpower-title">
+          <span>👑</span>
+          <span>Режим Администратора: Просмотр кабинета любого преподавателя</span>
+        </div>
+        <div class="admin-superpower-selects">
+          <span style="font-size: 12px; font-weight: 700;">Преподаватель:</span>
+          <select id="admin-teacher-select" class="select-expressive" style="padding: 6px 30px 6px 12px; font-size: 13px;">
+            <option value="Михаил Ширяев" selected>Михаил Ширяев (Разработка ПО)</option>
+            <option value="Моисеева А. А.">Моисеева А. А. (Программные модули)</option>
+            <option value="Смирнов В. И.">Смирнов В. И. (Базы данных)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="schedule-grid">
+        <div class="class-card" style="border: 2px solid var(--md-sys-color-primary);">
+          <div>
+            <div class="chip-type">Учебная нагрузка</div>
+            <h3 style="font-size: 22px; font-weight: 800;" id="teacher-view-name">Михаил Ширяев</h3>
+            <p style="font-size: 16px; font-weight: 700; color: var(--md-sys-color-primary); margin-top: 4px;" id="teacher-view-subject">Разработка ПО</p>
+            <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
+              <div><strong>Нагрузка:</strong> <span id="teacher-view-hours">18 ч/нед. (4 группы)</span></div>
+              <div><strong>Закрепленные группы:</strong> <span id="teacher-view-groups">ИС-31, ОИ31-09, ОИ32-09, ОИ33-09</span></div>
+              <div><strong>Консультации:</strong> <span id="teacher-view-consult">Среда 14:00 - 16:00, каб. 302</span></div>
+            </div>
+          </div>
+          <div class="room-badge-blob" style="width: 80px; height: 80px;">
+            <span style="font-size: 10px; font-weight: 700;">СТАТУС</span>
+            АКТИВЕН
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <div class="chip-type">Быстрые ведомости</div>
+            <h3 style="font-size: 20px; font-weight: 800;">Аттестационная ведомость</h3>
+            <p style="color: var(--md-sys-color-on-surface-variant); margin-top: 6px; font-size: 14px;">Подтверждение контрольных точек и выгрузка для деканата</p>
+          </div>
+          <button class="btn-m3 btn-primary" onclick="showToast('Ведомость передана в деканат')">Подписать ЭЦП</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 7: ADMIN PANEL (Админ-панель)
+         ============================================================ -->
+    <div id="screen-admin-panel" class="module-screen content-padding" style="display: none;">
+      
+      <div class="table-card">
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--md-sys-color-outline-variant); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h3 style="font-size: 18px; font-weight: 800;">Управление пользователями системы</h3>
+            <p style="font-size: 13px; color: var(--md-sys-color-on-surface-variant); margin-top: 2px;">Список активных учетных записей и назначение ролей</p>
+          </div>
+          <button class="btn-m3 btn-primary" onclick="showToast('Синхронизация с SQLite БД успешно завершена')">+ Добавить пользователя</button>
+        </div>
+
+        <div class="table-responsive-container">
+          <table class="expressive-table">
+            <thead>
+              <tr>
+                <th style="text-align: left; padding-left: 24px;">Пользователь</th>
+                <th>Логин</th>
+                <th>Роль в системе</th>
+                <th>Email</th>
+                <th>Статус</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; padding-left: 24px; font-weight: 700;">Администратор Системы</td>
+                <td><code>admin</code></td>
+                <td><span class="popover-role-badge">Администратор</span></td>
+                <td>admin@college.edu</td>
+                <td><span class="badge-attendance">Активен</span></td>
+                <td><button class="btn-m3 btn-tonal" style="padding: 4px 10px; font-size: 11px;" onclick="quickSwitchUser('admin')">Войти</button></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; padding-left: 24px; font-weight: 700;">Михаил Ширяев</td>
+                <td><code>teacher</code></td>
+                <td><span class="popover-role-badge" style="background:var(--md-sys-color-secondary-container); color:var(--md-sys-color-on-secondary-container);">Преподаватель</span></td>
+                <td>m.shiriaev@college.edu</td>
+                <td><span class="badge-attendance">Активен</span></td>
+                <td><button class="btn-m3 btn-tonal" style="padding: 4px 10px; font-size: 11px;" onclick="quickSwitchUser('teacher')">Войти</button></td>
+              </tr>
+              <tr>
+                <td style="text-align: left; padding-left: 24px; font-weight: 700;">Александров Илья</td>
+                <td><code>student</code></td>
+                <td><span class="popover-role-badge" style="background:var(--md-sys-color-tertiary-container); color:var(--md-sys-color-on-tertiary-container);">Студент (ИС-31)</span></td>
+                <td>i.alexandrov@college.edu</td>
+                <td><span class="badge-attendance">Активен</span></td>
+                <td><button class="btn-m3 btn-tonal" style="padding: 4px 10px; font-size: 11px;" onclick="quickSwitchUser('student')">Войти</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ============================================================
+     LOGIN OVERLAY / SCREEN (Material 3 Expressive)
+     ============================================================ -->
+<div id="login-overlay" class="login-overlay">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="brand-icon">🎓</div>
+      <h2>Вход в систему</h2>
+      <p>College Management System • M3 Expressive</p>
+    </div>
+
+    <!-- Quick Demo Accounts -->
+    <div class="login-quick-demo">
+      <span class="filter-label">Быстрый вход для тестирования:</span>
+      <div class="login-quick-chips">
+        <button type="button" class="chip-quick-login" onclick="fillAndLogin('admin', 'admin')">
+          👑 Админ (admin / admin)
+        </button>
+        <button type="button" class="chip-quick-login" onclick="fillAndLogin('teacher', '1234')">
+          👨‍🏫 Учитель (teacher / 1234)
+        </button>
+        <button type="button" class="chip-quick-login" onclick="fillAndLogin('student', '1234')">
+          👨‍🎓 Студент (student / 1234)
+        </button>
+      </div>
+    </div>
+
+    <form id="login-form" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="form-group" style="margin: 0;">
+        <label class="form-label" for="login-username">Логин</label>
+        <input type="text" id="login-username" class="form-input" placeholder="admin, teacher или student" required autocomplete="username">
+      </div>
+
+      <div class="form-group" style="margin: 0;">
+        <label class="form-label" for="login-password">Пароль</label>
+        <input type="password" id="login-password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+
+      <div id="login-error" class="login-error-msg">Неверный логин или пароль</div>
+
+      <button type="submit" class="btn-m3 btn-primary" style="width: 100%; padding: 12px; margin-top: 6px;">
+        Войти в аккаунт
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
+     Expressive Modal: Add / Edit Grade
+     ============================================================ -->
+<div id="grade-modal" class="modal-overlay">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 id="modal-title">Добавить оценку</h3>
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+    </div>
+
+    <form onsubmit="event.preventDefault(); saveGradeFromModal();">
+      <div class="form-group">
+        <label class="form-label" for="modal-student-select">Студент</label>
+        <select id="modal-student-select" class="form-input"></select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="modal-date-select">Дата занятия</label>
+        <select id="modal-date-select" class="form-input"></select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Оценка</label>
+        <input type="hidden" id="modal-grade-value" value="5">
+        <div class="grade-selector-radio-group">
+          <div class="grade-radio-pill selected" data-val="5">5</div>
+          <div class="grade-radio-pill" data-val="4">4</div>
+          <div class="grade-radio-pill" data-val="3">3</div>
+          <div class="grade-radio-pill" data-val="2">2</div>
+        </div>
+      </div>
+
+      <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px; margin-top: 10px;">
+        <input type="checkbox" id="modal-attendance-checkbox" checked style="width: 18px; height: 18px; accent-color: var(--md-sys-color-primary);">
+        <label class="form-label" for="modal-attendance-checkbox" style="margin: 0; cursor: pointer;">Студент присутствовал на занятии</label>
+      </div>
+
+      <div class="form-group" style="margin-top: 14px;">
+        <label class="form-label" for="modal-comment">Комментарий к оценке</label>
+        <textarea id="modal-comment" class="form-textarea" rows="2" placeholder="Например: Практическая работа, ответ у доски..."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-m3 btn-outlined" onclick="closeModal()">Отмена</button>
+        <button type="submit" class="btn-m3 btn-primary">Сохранить оценку</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

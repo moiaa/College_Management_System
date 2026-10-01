@@ -20,7 +20,7 @@ class User(Base):
     role = Column(Enum(UserRole), nullable=False)
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
-    grades = relationship("Grade", back_populates="student")
+    grades = relationship("Grade", back_populates="student", foreign_keys="Grade.student_id")
     courses_as_teacher = relationship("Course", back_populates="teacher")
     attendance = relationship("Attendance", back_populates="student")
 
@@ -56,7 +56,7 @@ class Grade(Base):
     comment = Column(Text)
     graded_at = Column(DateTime, default=datetime.utcnow)
     graded_by = Column(Integer, ForeignKey("users.id"))
-    student = relationship("User", back_populates="grades")
+    student = relationship("User", back_populates="grades", foreign_keys=[student_id])
     course = relationship("Course", back_populates="grades")
 
 class Attendance(Base):

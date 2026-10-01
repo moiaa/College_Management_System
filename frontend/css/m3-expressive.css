@@ -1,0 +1,1756 @@
+/* Material 3 Expressive Design System
+   Based on the palette, shape scale, and motion from raspicanie Android project
+*/
+
+:root {
+  /* ============================================================
+     Light Color Scheme (Pastel Lavender & Rich Violet)
+     ============================================================ */
+  --md-sys-color-background: #F9F7FD;
+  --md-sys-color-surface: #F9F7FD;
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F7F5FC;
+  --md-sys-color-surface-container: #F1EEF7;
+  --md-sys-color-surface-container-high: #E9E4F2;
+  --md-sys-color-surface-container-highest: #E2DCEB;
+
+  --md-sys-color-primary: #5D54A4;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #EADDFF;
+  --md-sys-color-on-primary-container: #261958;
+
+  --md-sys-color-secondary: #7065AC;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #E9E3F8;
+  --md-sys-color-on-secondary-container: #261958;
+
+  --md-sys-color-tertiary: #A23E72;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #FFD9E9;
+  --md-sys-color-on-tertiary-container: #3E0026;
+
+  --md-sys-color-on-surface: #1E1A2B;
+  --md-sys-color-on-surface-variant: #6B657D;
+  --md-sys-color-outline: #D4CEE0;
+  --md-sys-color-outline-variant: rgba(212, 206, 224, 0.6);
+
+  --md-sys-color-error: #FF5252;
+  --md-sys-color-error-container: #FFDAD6;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-on-error-container: #410002;
+
+  /* Semantic status colors */
+  --status-ongoing-green: #00C853;
+  --status-ongoing-green-bg: #E8F5E9;
+  --status-ongoing-green-text: #1B5E20;
+
+  --status-upcoming-amber: #FFB300;
+  --status-upcoming-amber-bg: #FFF8E1;
+  --status-upcoming-amber-text: #B78103;
+
+  --status-cancelled-red: #FF5252;
+  --status-cancelled-red-bg: #FFEBEE;
+  --status-cancelled-red-text: #C62828;
+
+  /* Shadows (M3 Elevation) */
+  --elevation-0: none;
+  --elevation-1: 0 1px 3px 1px rgba(93, 84, 164, 0.08), 0 1px 2px 0 rgba(93, 84, 164, 0.12);
+  --elevation-2: 0 2px 6px 2px rgba(93, 84, 164, 0.1), 0 1px 2px 0 rgba(93, 84, 164, 0.15);
+  --elevation-3: 0 4px 12px 3px rgba(93, 84, 164, 0.12), 0 2px 6px 1px rgba(93, 84, 164, 0.18);
+  --elevation-4: 0 6px 16px 4px rgba(93, 84, 164, 0.14), 0 4px 8px 3px rgba(93, 84, 164, 0.18);
+
+  /* Expressive Shape Scale (from Theme.kt) */
+  --shape-xs: 10px;
+  --shape-sm: 14px;
+  --shape-md: 18px;
+  --shape-lg: 24px;
+  --shape-xl: 32px;
+  --shape-full: 9999px;
+
+  /* Expressive Spring Motion Physics (Material 3 Expressive) */
+  --spring-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --spring-overshoot: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --spring-snappy: cubic-bezier(0.2, 1.3, 0.4, 1);
+  --spring-gentle: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring-smooth: cubic-bezier(0.2, 0, 0, 1);
+  --spring-squish: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-fast: 180ms var(--spring-overshoot);
+  --transition-normal: 280ms var(--spring-overshoot);
+  --transition-bounce: 380ms var(--spring-bouncy);
+  --transition-smooth: 320ms var(--spring-smooth);
+}
+
+/* ============================================================
+   Dark Color Scheme (Deep Navy & Electric Sky Blue)
+   ============================================================ */
+[data-theme="dark"] {
+  --md-sys-color-background: #0C1B2B;
+  --md-sys-color-surface: #0C1B2B;
+  --md-sys-color-surface-container-lowest: #081320;
+  --md-sys-color-surface-container-low: #0E1E2F;
+  --md-sys-color-surface-container: #13253A;
+  --md-sys-color-surface-container-high: #1A3049;
+  --md-sys-color-surface-container-highest: #213B59;
+
+  --md-sys-color-primary: #72C7FF;
+  --md-sys-color-on-primary: #00344F;
+  --md-sys-color-primary-container: #19466B;
+  --md-sys-color-on-primary-container: #CFE5FF;
+
+  --md-sys-color-secondary: #5CB8F6;
+  --md-sys-color-on-secondary: #00344F;
+  --md-sys-color-secondary-container: #193B5C;
+  --md-sys-color-on-secondary-container: #CFE5FF;
+
+  --md-sys-color-tertiary: #FFB0D8;
+  --md-sys-color-on-tertiary: #5C0A3B;
+  --md-sys-color-tertiary-container: #7A1052;
+  --md-sys-color-on-tertiary-container: #FFD9E9;
+
+  --md-sys-color-on-surface: #EDF2F8;
+  --md-sys-color-on-surface-variant: #90A3B8;
+  --md-sys-color-outline: #25415E;
+  --md-sys-color-outline-variant: rgba(37, 65, 94, 0.5);
+
+  --md-sys-color-error: #FF5252;
+  --md-sys-color-error-container: #4A1818;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-on-error-container: #FFB4AB;
+
+  --status-ongoing-green: #00E676;
+  --status-ongoing-green-bg: rgba(0, 230, 118, 0.15);
+  --status-ongoing-green-text: #69F0AE;
+
+  --status-upcoming-amber: #FFD54F;
+  --status-upcoming-amber-bg: rgba(255, 213, 79, 0.15);
+  --status-upcoming-amber-text: #FFE082;
+
+  --status-cancelled-red: #FF5252;
+  --status-cancelled-red-bg: rgba(255, 82, 82, 0.2);
+  --status-cancelled-red-text: #FF8A80;
+
+  --elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --elevation-2: 0 2px 6px 2px rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.45);
+  --elevation-3: 0 4px 14px 4px rgba(0, 0, 0, 0.4), 0 2px 6px 1px rgba(0, 0, 0, 0.5);
+  --elevation-4: 0 6px 20px 6px rgba(0, 0, 0, 0.5), 0 4px 8px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================================
+   Base Resets & Expressive Typography
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+/* Expressive Layout Container */
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Expressive Navigation Rail / Sidebar
+   ============================================================ */
+.expressive-sidebar {
+  width: 280px;
+  background-color: var(--md-sys-color-surface-container);
+  border-right: 1px solid var(--md-sys-color-outline-variant);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  flex-shrink: 0;
+  transition: all var(--transition-smooth);
+  z-index: 50;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px 28px 12px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-secondary));
+  color: var(--md-sys-color-on-primary);
+  border-radius: var(--shape-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: var(--elevation-2);
+  transition: transform 380ms var(--spring-bouncy), box-shadow 300ms ease;
+  cursor: pointer;
+}
+
+.brand-section:hover .brand-icon {
+  transform: rotate(-10deg) scale(1.14);
+  box-shadow: var(--elevation-3);
+}
+
+.brand-info h1 {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.brand-info span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+  letter-spacing: 0.2px;
+}
+
+/* Expressive Navigation Pills */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px;
+  border-radius: var(--shape-full);
+  color: var(--md-sys-color-on-surface-variant);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  transition: transform 320ms var(--spring-bouncy), background-color 200ms ease, color 200ms ease, box-shadow 300ms ease;
+  user-select: none;
+  will-change: transform;
+}
+
+.nav-link svg, .nav-link .icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: currentColor;
+  transition: transform 320ms var(--spring-bouncy);
+}
+
+.nav-link:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  transform: translateX(6px) scale(1.02);
+}
+
+.nav-link:hover svg {
+  transform: scale(1.22) rotate(-5deg);
+}
+
+.nav-link:active {
+  transform: scale(0.95) translateX(3px);
+}
+
+/* Selected Pill with spring expansion */
+.nav-link.active {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--elevation-2);
+  animation: navPillPop 0.38s var(--spring-bouncy) both;
+}
+
+.nav-link.active svg {
+  transform: scale(1.2);
+}
+
+@keyframes navPillPop {
+  0% { transform: scale(0.9); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.nav-badge {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--shape-full);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.nav-link.active .nav-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+/* User profile block in sidebar */
+.user-profile-card {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--shape-lg);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: transform 320ms var(--spring-bouncy), box-shadow 300ms ease, background-color 200ms ease;
+  will-change: transform;
+}
+
+.user-profile-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--elevation-2);
+  background: var(--md-sys-color-surface-container-highest);
+}
+
+.user-profile-card:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--shape-full);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 320ms var(--spring-bouncy);
+}
+
+.user-profile-card:hover .user-avatar {
+  transform: scale(1.12) rotate(8deg);
+}
+
+.user-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Theme switch button */
+.theme-toggle-btn {
+  background: var(--md-sys-color-surface-container-highest);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--shape-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface);
+  transition: transform 380ms var(--spring-bouncy), background-color 200ms ease;
+  will-change: transform;
+}
+
+.theme-toggle-btn:hover {
+  transform: rotate(30deg) scale(1.18);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.85) rotate(-30deg);
+}
+
+/* ============================================================
+   Main Work Area & Header
+   ============================================================ */
+.main-viewport {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-background);
+}
+
+.top-app-bar {
+  padding: 24px 36px 16px 36px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.page-headline h2 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.page-headline p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 4px;
+}
+
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================================================
+   Expressive Buttons & Chips
+   ============================================================ */
+.btn-m3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: var(--shape-full);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 300ms var(--spring-bouncy), box-shadow 260ms ease, background-color 200ms ease, border-color 200ms ease;
+  user-select: none;
+  text-decoration: none;
+  outline: none;
+  will-change: transform;
+}
+
+.btn-m3:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--elevation-2);
+}
+
+.btn-m3:active {
+  transform: scale(0.94) translateY(1px);
+}
+
+/* Primary Filled Button */
+.btn-primary {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--elevation-1);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--elevation-3);
+  filter: brightness(1.08);
+}
+
+/* Tonal Button */
+.btn-tonal {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.btn-tonal:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+/* Outlined Button */
+.btn-outlined {
+  background: transparent;
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface);
+}
+
+.btn-outlined:hover {
+  background-color: var(--md-sys-color-surface-container);
+  border-color: var(--md-sys-color-primary);
+}
+
+/* ============================================================
+   Filter Context Bar / Expressive Filter Strip
+   ============================================================ */
+.content-padding {
+  padding: 0 36px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filter-strip {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--shape-xl);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-1);
+  transition: transform 320ms var(--spring-bouncy), box-shadow 300ms ease;
+}
+
+.filter-strip:hover {
+  box-shadow: var(--elevation-2);
+}
+
+.filters-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.select-expressive {
+  appearance: none;
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 8px 36px 8px 14px;
+  border-radius: var(--shape-md);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236B657D'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  transition: transform 280ms var(--spring-bouncy), border-color 200ms ease, box-shadow 260ms ease;
+  will-change: transform;
+}
+
+.select-expressive:hover {
+  transform: translateY(-2px);
+  border-color: var(--md-sys-color-primary);
+}
+
+.select-expressive:focus {
+  transform: scale(1.025);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 4px rgba(93, 84, 164, 0.22);
+}
+
+/* Metric KPI badge */
+.kpi-indicator {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--md-sys-color-surface-container-high);
+  padding: 8px 18px;
+  border-radius: var(--shape-full);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: transform 320ms var(--spring-bouncy), box-shadow 260ms ease;
+  cursor: default;
+  will-change: transform;
+}
+
+.kpi-indicator:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: var(--elevation-2);
+}
+
+.kpi-pop {
+  animation: kpiSpringBounce 0.45s var(--spring-bouncy) both;
+}
+
+@keyframes kpiSpringBounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.15) translateY(-3px); }
+  75% { transform: scale(0.97) translateY(1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.kpi-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.kpi-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--status-ongoing-green);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================================
+   Expressive Table Card
+   ============================================================ */
+.table-card {
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--shape-xl);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-responsive-container {
+  overflow-x: auto;
+  position: relative;
+  scrollbar-width: thin;
+}
+
+.expressive-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.expressive-table th {
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 16px 14px;
+  border-bottom: 2px solid var(--md-sys-color-outline-variant);
+  text-align: center;
+}
+
+.expressive-table th.col-student {
+  text-align: left;
+  padding-left: 24px;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.expressive-table th.col-comments {
+  text-align: left;
+}
+
+.expressive-table td {
+  padding: 14px 14px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  text-align: center;
+  transition: background-color 180ms ease;
+}
+
+.expressive-table tbody tr {
+  transition: background-color 180ms ease, transform 260ms var(--spring-bouncy);
+  animation: rowSpringCascade 0.38s var(--spring-bouncy) both;
+  animation-delay: calc(var(--row-index, 0) * 35ms);
+  will-change: transform;
+}
+
+.expressive-table tbody tr:hover {
+  background-color: var(--md-sys-color-surface-container);
+  transform: scale(1.002) translateZ(0);
+}
+
+@keyframes rowSpringCascade {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.004);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Sticky Student Column */
+.expressive-table td.col-student {
+  text-align: left;
+  padding-left: 24px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  position: sticky;
+  left: 0;
+  background-color: var(--md-sys-color-surface-container-low);
+  z-index: 5;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
+}
+
+.expressive-table tbody tr:hover td.col-student {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+/* Grade Cell Badges */
+.grade-cell-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--shape-full);
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: transform 280ms var(--spring-bouncy), box-shadow 240ms ease, background-color 200ms ease;
+  user-select: none;
+  will-change: transform;
+}
+
+.grade-cell-btn:hover {
+  transform: scale(1.24) translateY(-2px);
+  box-shadow: var(--elevation-2);
+}
+
+.grade-cell-btn:active {
+  transform: scale(0.86) translateY(1px);
+}
+
+.grade-5 {
+  color: var(--status-ongoing-green);
+  background-color: var(--status-ongoing-green-bg);
+}
+
+.grade-4 {
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-secondary-container);
+}
+
+.grade-3 {
+  color: var(--status-cancelled-red);
+  background-color: var(--status-cancelled-red-bg);
+}
+
+.grade-empty {
+  color: var(--md-sys-color-on-surface-variant);
+  opacity: 0.4;
+}
+
+.grade-empty:hover {
+  opacity: 1;
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+/* Absence / Attendance marker */
+.grade-absent {
+  color: var(--status-upcoming-amber-text);
+  background-color: var(--status-upcoming-amber-bg);
+  font-weight: 800;
+}
+
+/* Average GPA & Attendance % */
+.badge-gpa {
+  font-weight: 800;
+  font-size: 15px;
+  padding: 4px 10px;
+  border-radius: var(--shape-sm);
+  background-color: var(--md-sys-color-surface-container-high);
+  display: inline-block;
+  transition: transform 260ms var(--spring-bouncy);
+  will-change: transform;
+}
+
+.badge-gpa:hover {
+  transform: scale(1.15) translateY(-1px);
+}
+
+.badge-attendance {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--status-ongoing-green);
+  display: inline-block;
+  transition: transform 260ms var(--spring-bouncy);
+  will-change: transform;
+}
+
+.badge-attendance:hover {
+  transform: scale(1.15);
+}
+
+.comment-cell {
+  text-align: left;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px;
+}
+
+/* Row Action Buttons */
+.row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-icon-action {
+  background: transparent;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 6px 12px;
+  border-radius: var(--shape-full);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 240ms var(--spring-bouncy), background-color 180ms ease, color 180ms ease;
+  will-change: transform;
+}
+
+.btn-icon-action:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-primary);
+  transform: scale(1.1) translateY(-1px);
+}
+
+.btn-icon-action:active {
+  transform: scale(0.92);
+}
+
+.btn-icon-action.delete:hover {
+  color: var(--md-sys-color-error);
+  background-color: var(--md-sys-color-error-container);
+}
+
+/* Table Footer Legend */
+.table-legend-footer {
+  padding: 16px 24px;
+  background-color: var(--md-sys-color-surface-container);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--shape-full);
+}
+
+/* Student Subject View in Gradebook */
+.subject-meta-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.subject-meta-cell .subject-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.subject-meta-cell .subject-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.subject-code-badge {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-primary);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Control Type Badges (Exam, Diff Credit, Pass) */
+.badge-control-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: var(--shape-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.badge-control-exam {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.badge-control-diff {
+  background-color: var(--status-upcoming-amber-bg);
+  color: var(--status-upcoming-amber-text);
+}
+
+.badge-control-pass {
+  background-color: var(--status-ongoing-green-bg);
+  color: var(--status-ongoing-green);
+}
+
+.student-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  padding: 8px 14px;
+  border-radius: var(--shape-md);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   Expressive Modal / Dialog
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 27, 43, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-dialog {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--shape-xl);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-4);
+  width: 90%;
+  max-width: 520px;
+  padding: 32px;
+  transform: scale(0.8) translateY(32px);
+  transition: transform 420ms var(--spring-bouncy);
+  will-change: transform;
+}
+
+.modal-overlay.active .modal-dialog {
+  transform: scale(1) translateY(0);
+  animation: modalSpringPop 0.46s var(--spring-bouncy) both;
+}
+
+@keyframes modalSpringPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.78) translateY(36px);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.035) translateY(-4px);
+  }
+  80% {
+    transform: scale(0.985) translateY(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.modal-header h3 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface-variant);
+  border-radius: var(--shape-full);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 280ms var(--spring-bouncy), background-color 180ms ease, color 180ms ease;
+  will-change: transform;
+}
+
+.modal-close-btn:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-error);
+  transform: scale(1.2) rotate(90deg);
+}
+
+.modal-close-btn:active {
+  transform: scale(0.9) rotate(90deg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--shape-sm);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: transform 240ms var(--spring-bouncy), border-color 200ms ease, box-shadow 260ms ease;
+  will-change: transform;
+}
+
+.form-input:focus, .form-textarea:focus {
+  transform: scale(1.015);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 4px rgba(93, 84, 164, 0.2);
+}
+
+.grade-selector-radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.grade-radio-pill {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: var(--shape-sm);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container-lowest);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 260ms var(--spring-bouncy), border-color 200ms ease, background-color 200ms ease, box-shadow 260ms ease;
+  user-select: none;
+  will-change: transform;
+}
+
+.grade-radio-pill:hover {
+  border-color: var(--md-sys-color-primary);
+  transform: translateY(-2px) scale(1.06);
+}
+
+.grade-radio-pill:active {
+  transform: scale(0.92);
+}
+
+.grade-radio-pill.selected {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: var(--elevation-2);
+  transform: scale(1.08);
+  animation: pillSelectedBounce 0.36s var(--spring-bouncy) both;
+}
+
+@keyframes pillSelectedBounce {
+  0% { transform: scale(0.9); }
+  60% { transform: scale(1.16); }
+  100% { transform: scale(1.08); }
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* ============================================================
+   Toast / Snackbar
+   ============================================================ */
+/* ============================================================
+   Toast / Snackbar (Material 3 Expressive Spring Motion)
+   ============================================================ */
+.expressive-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px) scale(0.8);
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  padding: 14px 26px;
+  border-radius: var(--shape-full);
+  box-shadow: var(--elevation-4);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 420ms var(--spring-bouncy), opacity 300ms ease;
+  z-index: 2000;
+  will-change: transform, opacity;
+}
+
+.expressive-toast.show {
+  transform: translateX(-50%) translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+  animation: toastSpringPop 0.45s var(--spring-bouncy) both;
+}
+
+@keyframes toastSpringPop {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(50px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px) scale(1.04);
+  }
+  85% {
+    transform: translateX(-50%) translateY(2px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* ============================================================
+   Module Screen Spring Entrance
+   ============================================================ */
+.module-screen {
+  animation: screenSpringEnter 0.42s var(--spring-bouncy) both;
+}
+
+.module-screen.spring-entering {
+  animation: screenSpringEnter 0.42s var(--spring-bouncy) both;
+}
+
+@keyframes screenSpringEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.975);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.006);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================================
+   Expressive Schedule Card (Reference: ClassCard.kt)
+   ============================================================ */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.class-card {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--shape-xl);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: transform 320ms var(--spring-bouncy), box-shadow 300ms ease, border-color 250ms ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.class-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--elevation-3);
+  border-color: var(--md-sys-color-primary);
+}
+
+.class-card:active {
+  transform: scale(0.97);
+}
+
+.class-card.ongoing {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.class-card.ongoing .chip-type {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.class-card.ongoing .card-subtext {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.chip-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: var(--shape-full);
+  font-size: 11px;
+  font-weight: 800;
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  margin-bottom: 12px;
+  transition: transform 260ms var(--spring-bouncy);
+}
+
+.class-card:hover .chip-type {
+  transform: scale(1.06);
+}
+
+.room-badge-blob {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--shape-lg);
+  background-color: var(--md-sys-color-surface-container-high);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 800;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: transform 340ms var(--spring-bouncy);
+}
+
+.class-card:hover .room-badge-blob {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.class-card.ongoing .room-badge-blob {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+/* Squiggly Progress bar */
+.progress-track {
+  height: 6px;
+  border-radius: var(--shape-full);
+  background: var(--md-sys-color-surface-container-highest);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--shape-full);
+  background: var(--md-sys-color-primary);
+  transition: width 0.4s var(--spring-smooth);
+}
+
+/* ============================================================
+   Responsive Design for Mobile & Tablets (Adaptive Layout)
+   ============================================================ */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column-reverse;
+  }
+  .expressive-sidebar {
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 14px;
+    border-right: none;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--md-sys-color-surface-container);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  }
+  .brand-section {
+    display: none;
+  }
+  .user-profile-card {
+    padding: 4px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  .user-details {
+    display: none;
+  }
+  .user-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+  .nav-menu {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 4px;
+  }
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 11px;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: var(--shape-lg);
+  }
+  .nav-link svg, .nav-link .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .nav-link span {
+    display: none;
+  }
+  .profile-popover {
+    position: fixed;
+    bottom: 80px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: 360px;
+    margin: 0 auto;
+    transform-origin: bottom center;
+  }
+  .main-viewport {
+    height: calc(100vh - 70px);
+    margin-bottom: 70px;
+  }
+  .top-app-bar {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .content-padding {
+    padding: 0 16px 24px 16px;
+  }
+  .filter-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+  .filters-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-field {
+    width: 100%;
+  }
+  .select-expressive {
+    width: 100%;
+  }
+  .kpi-indicator {
+    justify-content: space-between;
+  }
+  .modal-dialog {
+    width: 94vw;
+    padding: 24px 20px;
+    border-radius: var(--shape-lg);
+  }
+}
+
+/* ============================================================
+   Profile Popover & Account Switcher (Spring Bouncy)
+   ============================================================ */
+.user-profile-card {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.profile-popover {
+  position: absolute;
+  bottom: 84px;
+  left: 14px;
+  width: 252px;
+  background-color: var(--md-sys-color-surface-container-high);
+  border-radius: var(--shape-xl);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-4);
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 70;
+  transform-origin: bottom left;
+  will-change: transform, opacity;
+}
+
+.profile-popover.active {
+  display: flex;
+  animation: popoverSpring 0.42s var(--spring-bouncy) both;
+}
+
+@keyframes popoverSpring {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.04);
+  }
+  85% {
+    transform: translateY(2px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popover-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.popover-role-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--shape-full);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  margin-top: 2px;
+}
+
+.popover-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.quick-switch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn-switch-account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: var(--shape-md);
+  border: none;
+  background: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 260ms var(--spring-bouncy), background-color 200ms ease, color 200ms ease;
+  will-change: transform;
+}
+
+.btn-switch-account:hover {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  transform: translateX(6px) scale(1.02);
+}
+
+.btn-switch-account:active {
+  transform: scale(0.96);
+}
+
+.btn-switch-account.current {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--shape-full);
+  border: 1px solid var(--md-sys-color-error);
+  background: transparent;
+  color: var(--md-sys-color-error);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 280ms var(--spring-bouncy), background-color 200ms ease, color 200ms ease;
+  will-change: transform;
+}
+
+.btn-logout:hover {
+  background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-logout:active {
+  transform: scale(0.95);
+}
+
+/* ============================================================
+   Login Screen (Material 3 Expressive Spring Motion)
+   ============================================================ */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(12, 27, 43, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.login-overlay.active {
+  display: flex;
+  animation: loginFade 0.28s ease both;
+}
+
+@keyframes loginFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.login-card {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--shape-xl);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-4);
+  width: 100%;
+  max-width: 440px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: loginCardSpring 0.48s var(--spring-bouncy) both;
+  will-change: transform;
+}
+
+@keyframes loginCardSpring {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(36px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.035) translateY(-5px);
+  }
+  85% {
+    transform: scale(0.99) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.login-header .brand-icon {
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
+}
+
+.login-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.login-header p {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.login-quick-demo {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--shape-lg);
+  padding: 14px;
+  border: 1px dashed var(--md-sys-color-outline-variant);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-quick-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip-quick-login {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: var(--shape-full);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.chip-quick-login:hover {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: var(--md-sys-color-primary);
+  transform: translateY(-2px);
+}
+
+.login-error-msg {
+  color: var(--md-sys-color-error);
+  font-size: 13px;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+}
+
+/* ============================================================
+   Admin Superpower Controls Strip
+   ============================================================ */
+.admin-superpower-bar {
+  background: linear-gradient(90deg, var(--md-sys-color-primary-container), var(--md-sys-color-secondary-container));
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--shape-lg);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--elevation-1);
+}
+
+.admin-superpower-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.admin-superpower-selects {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}

@@ -21,9 +21,15 @@ def init():
     console.print("[bold green]✅ Готово![/bold green]")
 
 @cli.command()
-def run():
+@click.option("--host", default="127.0.0.1", help="Хост сервера")
+@click.option("--port", default=8000, help="Порт сервера")
+@click.option("--reload/--no-reload", default=True, help="Автоперезагрузка")
+def run(host, port, reload):
     """Запустить приложение"""
-    console.print("[green]Запуск...[/green]")
+    console.print(f"[bold green]Запуск сервера: http://{host}:{port}/[/bold green]")
+    console.print(f"[bold cyan]Электронный журнал: http://{host}:{port}/frontend/gradebook/[/bold cyan]")
+    import uvicorn
+    uvicorn.run("core.api:app", host=host, port=port, reload=reload)
 
 if __name__ == "__main__":
     cli()

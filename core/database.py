@@ -19,4 +19,7 @@ def init_db():
     """Инициализация БД"""
     from .models import User, Course, Schedule, Grade, Attendance
     Base.metadata.create_all(bind=engine)
-    print("✅ База данных инициализирована!")
+    try:
+        print("✅ База данных инициализирована!")
+    except UnicodeEncodeError:
+        print("[OK] База данных инициализирована!")

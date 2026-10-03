@@ -309,3 +309,104 @@ Backend модуля предоставляет REST API для всех эти�
 - **Student Portal, Teacher Portal:** используют учётные записи и роли из таблицы `users`; блокировка пользователя в админ-панели должна запрещать ему вход.
 - **Reports:** может использовать числовые показатели из `GET /dashboard` и данные групп.
 - **Admin Panel — Frontend (issue #25):** потребитель всех эндпоинтов раздела 4.1.
+## 5. Структура базы данных
+
+### 5.1. Таблицы
+
+Таблица `users` — основная таблица учётных записей, принадлежит `core/`. Модуль добавляет в неё, при необходимости, поля `group_id` и `deleted_at` (уточняется по реальной модели в `core/`).
+
+**Таблица:** `users`
+
+| Поле            | Тип      | Описание                                           |
+| --------------- | -------- | -------------------------------------------------- |
+| id              | Integer  | Первичный ключ                                     |
+| full_name       | String   | ФИО                                                |
+| email           | String   | Email, уникальный                                  |
+| password_hash   | String   | Хэш пароля                                         |
+| role            | String   | `admin`, `teacher`, `student`                      |
+| group_id        | Integer  | Внешний ключ на `student_groups.id`, может быть NULL |
+| is_active       | Boolean  | `false` — пользователь заблокирован                |
+| created_at      | DateTime | Дата создания                                      |
+| deleted_at      | DateTime | Дата мягкого удаления, NULL — запись действует     |
+
+**Таблица:** `student_groups`
+
+| Поле           | Тип     | Описание                       |
+| -------------- | ------- | ------------------------------ |
+| id             | Integer | Первичный ключ                 |
+| name           | String  | Название группы, уникальное    |
+| admission_year | Integer | Год набора                     |
+
+**Таблица:** `subjects`
+
+| Поле  | Тип     | Описание                       |
+| ----- | ------- | ------------------------------ |
+| id    | Integer | Первичный ключ                 |
+| name  | String  | Название дисциплины            |
+| code  | String  | Код дисциплины, уникальный     |
+| hours | Integer | Количество часов, может быть NULL |
+
+**Таблица:** `audit_log`
+
+| Поле       | Тип      | Описание                                              |
+| ---------- | -------- | ----------------------------------------------------- |
+| id         | Integer  | Первичный ключ                                        |
+| user_id    | Integer  | Внешний ключ на `users.id` — кто выполнил действие    |
+| action     | String   | Код действия: `user.create`, `user.block`, `group.delete` и т. п. |
+| entity     | String   | Тип объекта: `user`, `group`, `subject`               |
+| entity_id  | Integer  | Идентификатор объекта                                 |
+| details    | String   | Краткое описание изменения                            |
+| created_at | DateTime | Время действия                                        |
+
+## 6. Критерии приёмки
+
+- [ ] Все функции из раздела 2.1 реализованы, эндпоинты из раздела 4.1 работают по описанному контракту
+- [ ] Доступ ко всем эндпоинтам только у роли `admin`; без токена — `401`, с другой ролью — `403`
+- [ ] Пароли хранятся в виде хэша и не возвращаются в ответах
+- [ ] Каждое изменяющее действие записывается в `audit_log`
+- [ ] Тесты написаны и проходят (`pytest`), покрыты основные успешные сценарии и ошибки (`404`, `409`, `422`, `401`, `403`)
+- [ ] CI зелёный (`pytest` + `flake8`)
+- [ ] Раздел 4.1 согласован с `specification-frontend.md` этого модуля (см. чек-лист в «API-контракт»)
+- [ ] Pull Request создан и принят
+
+## 7. Приложения
+
+### Схема связей таблиц
+
+```mermaid
+erDiagram
+    student_groups ||--o{ users : "group_id"
+    users ||--o{ audit_log : "user_id"
+
+    users {
+        int id PK
+        string full_name
+        string email
+        string password_hash
+        string role
+        int group_id FK
+        bool is_active
+        datetime created_at
+        datetime deleted_at
+    }
+    student_groups {
+        int id PK
+        string name
+        int admission_year
+    }
+    subjects {
+        int id PK
+        string name
+        string code
+        int hours
+    }
+    audit_log {
+        int id PK
+        int user_id FK
+        string action
+        string entity
+        int entity_id
+        string details
+        datetime created_at
+    }
+```

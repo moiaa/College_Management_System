@@ -29,3 +29,6 @@ htmlcov/
 
 # Alembic
 *.pyc
+
+# Uploaded files (student_portal и др.)
+uploads/

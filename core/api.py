@@ -25,6 +25,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from docs.examples.example_module.router import router as example_router
+from modules.student_portal.router import router as student_portal_router
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
@@ -39,6 +40,7 @@ app.add_middleware(
 )
 
 app.include_router(example_router)
+app.include_router(student_portal_router)
 
 
 @app.get("/health", tags=["system"])
